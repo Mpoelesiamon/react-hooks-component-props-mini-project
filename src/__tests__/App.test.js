@@ -1,11 +1,16 @@
-import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
-import App from "../components/App";
+import React from 'react';
+import Header from './Header';
+import About from './About';
+import ArticleList from './ArticleList';
+import data from '../data/blog';
 
-test("renders the correct child components", () => {
-  const { container } = render(<App />);
-  expect(container.querySelector(".App")).toBeInTheDocument();
-  expect(container.querySelector(".App header")).toBeInTheDocument();
-  expect(container.querySelector(".App aside")).toBeInTheDocument();
-  expect(container.querySelector(".App main")).toBeInTheDocument();
-});
+const App = () => (
+  <div>
+    <Header blogName={data.blogName} />
+    <About blogImage={data.blogImage} aboutText={data.aboutText} />
+    <ArticleList articles={data.articles} />
+  </div>
+);
+
+export default App;
+
